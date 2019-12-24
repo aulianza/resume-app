@@ -1,6 +1,6 @@
 var Skills = require('./skills.services')
 
-// add function 
+// add skill function 
 exports.createSkill = function(req, res, next){
   var skill = {
     name: req.body.name,

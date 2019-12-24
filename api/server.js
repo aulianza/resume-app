@@ -1,25 +1,26 @@
-var express = require('express')
-var log = require('morgan')('dev')
-var bodyParser = require('body-parser')
+const express = require('express')
+const log = require('morgan')('dev')
+const bodyParser = require('body-parser')
 
-var properties = require('./config/properties')
-var db = require('./config/database')
+const properties = require('./config/properties')
+const db = require('./config/database')
 
-var skillsRoutes = require('./skills/skills.routes')
-var app = express()
+const app = express()
+const routes = require('./routes');
+routes(app);
+
+// var skillsRoutes = require('./skills/skills.routes')
+// var skillRoutes = require('./modules/skills/routes')
 
 var bodyParserJSON = bodyParser.json()
 var bodyParserUrlEncoded = bodyParser.urlencoded({extended: true})
 
-var router = express.Router()
-
+// var router = express.Router()
 db()
 
 app.use(log)
 app.use(bodyParserJSON)
 app.use(bodyParserUrlEncoded)
-
-
 app.use(function(req, res, next){
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -28,8 +29,11 @@ app.use(function(req, res, next){
   next();
 })
 
-app.use('/api', router)
-skillsRoutes(router)
+// app.use('/api', router)
+// skillsRoutes(router)
+
+// app.use('/api/skills', router)
+// skillRoutes(router)
 
 app.listen(properties.PORT, (req, res) => {
   console.log(`server running on ${properties.PORT} port.`)
