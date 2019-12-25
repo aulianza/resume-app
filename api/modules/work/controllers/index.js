@@ -7,8 +7,18 @@ class WorkController {
   }
 
   async index(req, res){
+    // Skills.get({}, function(err, skills){
+    //   if(err){
+    //     res.json({
+    //       error: err
+    //     })
+    //   }
+    //   res.json({
+    //     skills: skills
+    //   })
+    // })
     // const result = await this.workService.index(req, query)
-    // res.send('result')
+    // res.send(result)
     res.json({
       message: 'you are in work controller'
     })

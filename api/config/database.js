@@ -8,7 +8,7 @@ var disconnected = chalk.bold.red
 var termination = chalk.bold.magenta
 
 module.exports = function(){
-  mongoose.connect(dbURL)
+  mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
 
   mongoose.connection.on('connected', function() {
     console.log(connected('mongoose default connection is open to ', dbURL))

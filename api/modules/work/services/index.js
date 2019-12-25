@@ -6,8 +6,10 @@ class WorkService {
   }
 
   async index(query){
-    return {
-      data: 'hello'
+    skillSchema.statics = {
+      get: function(query, cb){
+        this.find(query, cb)
+      },
     }
   }
 

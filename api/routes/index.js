@@ -1,4 +1,5 @@
 const workRoute = require('../modules/work/routes/index');
+const skillRoute = require('@skill/routes')
 
 module.exports = app => {
   app.route('/api').get((req, res) => {
@@ -7,5 +8,6 @@ module.exports = app => {
     })
   });
 
-  workRoute(app);
+  app.use('/api/work', workRoute);
+  app.use('/api/skill', skillRoute);
 };

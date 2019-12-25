@@ -1,13 +1,13 @@
-const WorkController = require('../controllers/index')
+const SkillController = require('@skill/controllers')
 const express = require('express')
 const router = express.Router()
 
 // module.exports = app => {
-  const workController = new WorkController();
+  const skillController = new SkillController();
 
   router
     .route('/')
-    .get(workController.index)
+    .get(skillController.index)
 // }
 
 module.exports = router;

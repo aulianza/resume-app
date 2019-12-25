@@ -1,12 +1,13 @@
+require('module-alias/register');
 const express = require('express')
 const log = require('morgan')('dev')
 const bodyParser = require('body-parser')
+const routes = require('./routes/index');
 
 const properties = require('./config/properties')
 const db = require('./config/database')
 
 const app = express()
-const routes = require('./routes');
 routes(app);
 
 // var skillsRoutes = require('./skills/skills.routes')
