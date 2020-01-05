@@ -7,7 +7,8 @@ class SkillModel {
   }
 
   async index() {
-    const query = `SELECT * FROM ${this.table}`;
+    const query = `SELECT * 
+                   FROM ${this.table}`;
     return await this.dbService.query(query);
   }
 
@@ -18,12 +19,16 @@ class SkillModel {
   }
 
   async checkSkill(name) {
-    const query = `SELECT * FROM ${this.table} WHERE name=?`;
+    const query = `SELECT * 
+                   FROM ${this.table} 
+                   WHERE name=?`;
     return await this.dbService.query(query, name);
   }
 
   async getById(id) {
-    const query = `SELECT id, name, level, icon FROM ${this.table} WHERE id=?`;
+    const query = `SELECT id, name, level, icon 
+                   FROM ${this.table} 
+                   WHERE id=?`;
     return await this.dbService.query(query, id);
   }
 
